@@ -3,9 +3,9 @@
         <style>
             canvas {
                 position: absolute;
-                transform: translate(-49%, -49%);
-                left:50vw;
-                top:50vh;
+                left: 0;
+                top: 0;
+                z-index: -1;
             }
 
         </style>
@@ -14,8 +14,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
         <script src="sketch.js"></script>
         <script src="lookScript.js"></script>
+        <script src="LASERSSS.js"></script>
     </head>
     <body>
-    
+        <button onclick="toggle('lookScrp')">Toggle Look Script</button>
+        <button onclick="toggle('facepnts')">Toggle Face Points</button>
+        <button onclick="toggle('aimer')">Toggle Aim Point</button>
+        <button onclick="toggle('mpAvg')">Toggle Midpoint of Face</button>
+        <button onclick="toggle('lsrEyes')">Toggle Laser Eyes</button>
+        <p>Hit space to shoot lasers out of your eyes</p>
     </body>
 </html>
