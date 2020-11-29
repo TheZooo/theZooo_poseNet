@@ -27,8 +27,7 @@ function findLookPoint() {
     let nose = pose.keypoints[0].position;
     let earLeft = pose.keypoints[3];
     let earRight = pose.keypoints[4];
-    let xDiff = nose.x - centerFaceX;
-    let yDiff;
+    xDiff = nose.x - centerFaceX;
     if (earLeft.score > 0.2 && earRight.score > 0.2) {
         yDiff = centerFaceY - ((earLeft.position.y + earRight.position.y)/2);
     } else {
