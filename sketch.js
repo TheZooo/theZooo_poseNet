@@ -24,6 +24,8 @@ function setup() {
     //Adding poseNet and sending HTMLVideoElement to video; callback: modelLoaded()
     poseNet = ml5.poseNet(video, modelLoaded);
     poseNet.on('pose', gotPoses); //Initiates when a "pose" is detected;  callback: gotPoses(poses)
+    //Adding background color to toggle buttons
+    showToggle('all');
 }
 
 function gotPoses(poses) {
@@ -43,19 +45,43 @@ function toggle(thing) {
     switch(thing) {
         case 'lookScrp':
             lookScriptBool = !lookScriptBool;
+            showToggle(thing, lookScriptBool);
         break;
         case 'facepnts':
             facePntBool = !facePntBool;
+            showToggle(thing, facePntBool);
         break;
         case 'aimer':
             visAimBool = !visAimBool;
+            showToggle(thing, visAimBool);
         break;
         case 'mpAvg':
             visMpBool = !visMpBool;
+            showToggle(thing, visMpBool);
         break;
         case 'lsrEyes':
             laserEyesBool = !laserEyesBool;
+            showToggle(thing, laserEyesBool);
         break;
+    }
+}
+
+function showToggle(bttn, bool) {
+    if (bttn === "all") {
+        let arr = [lookScriptBool, facePntBool, visAimBool, visMpBool, laserEyesBool];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i]) {
+                document.getElementsByClassName('toggleBttn')[i].style.backgroundColor = "#95ff7d";
+            } else {
+                document.getElementsByClassName('toggleBttn')[i].style.backgroundColor = "#ff7d7d";
+            }
+        }
+    } else {
+        if (bool) {
+            document.getElementById(bttn).style.backgroundColor = "#95ff7d";
+        } else {
+            document.getElementById(bttn).style.backgroundColor = "#ff7d7d";
+        }
     }
 }
 
