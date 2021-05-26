@@ -12,6 +12,8 @@ var facePntBool = false;
 var visAimBool = false;
 var visMpBool = false;
 var laserEyesBool = true;
+var colorBackgroundState = 0;
+var colorBG = ['rgb(255, 255, 255)', 'rgb(4, 244, 4)', 'rgb(0, 72, 187)'];
 
 function setup() {
     //Usual Canvas Setup
@@ -63,6 +65,12 @@ function toggle(thing) {
             laserEyesBool = !laserEyesBool;
             showToggle(thing, laserEyesBool);
         break;
+        case 'greenBG':
+            changeBG(1);
+        break;
+        case 'blueBG':
+            changeBG(2);
+        break;
     }
 }
 
@@ -85,8 +93,18 @@ function showToggle(bttn, bool) {
     }
 }
 
+function changeBG(screen) {
+    if (screen == 1 && colorBackgroundState !== 1) {
+        colorBackgroundState = 1;
+    } else if (screen == 2 && colorBackgroundState !== 2) {
+        colorBackgroundState = 2;
+    } else {
+        colorBackgroundState = 0;
+    }
+}
+
 function draw() {
-    background(255);
+    background(colorBG[colorBackgroundState]);
     translate(width/2 + videoWidth/2, height/2 - videoHeight/2);
     scale(-1, 1);
     image(video, 0, 0, videoWidth, videoHeight);
