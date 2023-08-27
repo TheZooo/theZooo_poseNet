@@ -13,6 +13,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
         <script src="sketch.js"></script>
+        <script src="lookScript.js"></script>
+        <script src="LASERSSS.js"></script>
         <script>
             var key;
             var exitA = false;
@@ -46,10 +48,8 @@
                 }
             }
         </script>
-        <script src="lookScript.js"></script>
-        <script src="LASERSSS.js"></script>
     </head>
-    <body>
+    <body onkeydown="exitFuncD(event)" onkeyup="exitFuncU(event)">
         <button class="toggleBttn" id="lookScrp" onclick="toggle('lookScrp')">Toggle Look Script</button>
         <button class="toggleBttn" id="facepnts" onclick="toggle('facepnts')">Toggle Face Points</button>
         <button class="toggleBttn" id="aimer" onclick="toggle('aimer')">Toggle Aim Point</button>
